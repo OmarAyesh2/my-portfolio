@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, X, Palette, Cuboid as Cube, Globe, ArrowRight, Github, Linkedin, Instagram, ChevronDown } from 'lucide-react';
+import { Menu, X, Palette, Cuboid as Cube, Globe, ArrowRight, Github, Linkedin, Instagram, ChevronDown, Languages } from 'lucide-react';
 import { Lightbox } from './components/Lightbox';
-
+import { useLanguage } from './hooks/useLanguage';
 
 const projects = [
   {
@@ -96,11 +96,24 @@ function App() {
               <a href="#work" className="nav-link">{t.nav.work}</a>
               <a href="#about" className="nav-link">{t.nav.about}</a>
               <a href="#contact" className="nav-link">{t.nav.contact}</a>
-              
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
+                aria-label="Toggle language"
+              >
+                <Languages size={20} className="mr-2" />
+                <span>{language === 'en' ? 'العربية' : 'English'}</span>
+              </button>
             </div>
 
             <div className="md:hidden flex items-center space-x-4">
-             
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center px-2 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
+                aria-label="Toggle language"
+              >
+                <Languages size={20} />
+              </button>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-600 hover:text-gray-900"
