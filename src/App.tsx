@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, X, Palette, Cuboid as Cube, Globe, ArrowRight, Github, Linkedin, Instagram, ChevronDown, Languages } from 'lucide-react';
+import { Menu, X, Palette, Cuboid as Cube, Globe, ArrowRight, Github, Linkedin, Instagram, ChevronDown } from 'lucide-react';
 import { Lightbox } from './components/Lightbox';
-import { useLanguage } from './hooks/useLanguage';
+
 
 const projects = [
   {
@@ -34,6 +34,18 @@ const projects = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2015",
       "https://images.unsplash.com/photo-1460925895935-8c3b84c55142?auto=format&fit=crop&q=80&w=2015",
       "https://images.unsplash.com/photo-1460925895953-8c3b84c55156?auto=format&fit=crop&q=80&w=2015"
+    ],
+    description: "Full e-commerce website design and development"
+  }
+  {
+    id: 4,
+    title: "Logo Design",
+    category: "logo",
+    images: [
+      "https://cdn.myportfolio.com/254f7732-c8c1-432d-a743-3015106fc23e/c41b6e9c-4430-4e00-8cc6-e4262ad7cdca_rw_1920.png?h=14ee6a20846b66ad1ece89dadcb2463b",
+      "https://cdn.myportfolio.com/254f7732-c8c1-432d-a743-3015106fc23e/7f34f04a-764a-4ed7-82ca-528413074570_rw_1200.jpg?h=89fa84167bdbc14461b02711314040ca",
+      "https://cdn.myportfolio.com/254f7732-c8c1-432d-a743-3015106fc23e/eccec8a2-cffe-4319-b7e1-dcd034cbf888_rw_1200.jpg?h=522f25131445a096655b7c69429e181d",
+      "https://cdn.myportfolio.com/254f7732-c8c1-432d-a743-3015106fc23e/3e835581-bb39-4d6d-8fe2-359ef02e0cff_rw_1920.jpg?h=bc5bfc2ae706a3f981a44e4869179850"
     ],
     description: "Full e-commerce website design and development"
   }
@@ -84,24 +96,11 @@ function App() {
               <a href="#work" className="nav-link">{t.nav.work}</a>
               <a href="#about" className="nav-link">{t.nav.about}</a>
               <a href="#contact" className="nav-link">{t.nav.contact}</a>
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
-                aria-label="Toggle language"
-              >
-                <Languages size={20} className="mr-2" />
-                <span>{language === 'en' ? 'العربية' : 'English'}</span>
-              </button>
+              
             </div>
 
             <div className="md:hidden flex items-center space-x-4">
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center px-2 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
-                aria-label="Toggle language"
-              >
-                <Languages size={20} />
-              </button>
+             
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-gray-600 hover:text-gray-900"
@@ -223,6 +222,17 @@ function App() {
               } shadow-md transition-all duration-300 hover:shadow-lg`}
             >
               <Globe size={18} className="mr-2" /> Web Design
+            </button>
+
+            <button
+              onClick={() => setActiveCategory('logo')}
+              className={`px-6 py-3 rounded-full flex items-center ${
+                activeCategory === 'logo'
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                  : 'bg-white text-gray-600 hover:bg-gray-50'
+              } shadow-md transition-all duration-300 hover:shadow-lg`}
+            >
+              <Globe size={18} className="mr-2" /> Logo Design
             </button>
           </div>
 
