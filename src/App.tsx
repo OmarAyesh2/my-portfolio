@@ -36,7 +36,7 @@ const projects = [
       "https://images.unsplash.com/photo-1460925895953-8c3b84c55156?auto=format&fit=crop&q=80&w=2015"
     ],
     description: "Full e-commerce website design and development"
-  }
+  },
   {
     id: 4,
     title: "Logo Design",
